@@ -37,8 +37,7 @@ A new Flutter project
 .
 ## 📸 واجهات التطبيق (App Screenshots)
 
-| Sign In Screen
-<img width="698" height="862" alt="image" src="https://github.com/user-attachments/assets/a090ef7f-006b-4adb-80d4-eb714654af1c" />
+
   
  صور التن
  ![home ](<img width="715" height="818" alt="Annotation 2026-05-10 225919" src="https://github.com/user-attachments/assets/33013b7f-3d11-44ce-a545-9158ab58be37" />
