@@ -1,3 +1,4 @@
+<img width="715" height="818" alt="Annotation 2026-05-10 225919" src="https://github.com/user-attachments/assets/0792553a-acda-469b-a627-a2bd7fc6240e" />
 # flutter_application_1
 # Shop App
 
@@ -32,41 +33,13 @@ lib/
 ├── shared/         # ويدجت مشتركة (Appbar, Colors, Global Widgets)
 └── main.dart       # نقطة الانطلاق للتطبيق
 A new Flutter project
-| Sign In Screen
-<img width="698" height="862" alt="image" src="https://github.com/user-attachments/assets/a090ef7f-006b-4adb-80d4-eb714654af1c" />
+
 .
 ## 📸 واجهات التطبيق (App Screenshots)
 
-<table style="width: 100%;">
-  <tr>
-    <td align="center" width="33%">
-      <img src="https://github.com/user-attachments/assets/33013b7f-3d11-44ce-a545-9158ab58be37" width="250px" alt="Home Screen"/><br/>
-      <b>الشاشة الرئيسية</b>
-    </td>
-    <td align="center" width="33%">
-      <img src="https://github.com/user-attachments/assets/42294797-2402-4511-ac75-901342937428" width="250px" alt="Products Screen"/><br/>
-      <b>قائمة المنتجات</b>
-    </td>
-    <td align="center" width="33%">
-      <img src="https://github.com/user-attachments/assets/6c4c4dce-3116-4dc2-bf38-e6743fb93cd4" width="250px" alt="Details Screen"/><br/>
-      <b>تفاصيل المنتج</b>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="33%">
-      <img src="https://github.com/user-attachments/assets/fba53322-aaff-4ac6-a062-fe09e221a0de" width="250px" alt="Cart Screen"/><br/>
-      <b>سلة التسوق</b>
-    </td>
-    <td align="center" width="33%">
-      <img src="https://github.com/user-attachments/assets/dcfb28f1-5aa6-40b6-9d79-451c2c9cde50" width="250px" alt="Checkout Screen"/><br/>
-      <b>إتمام الدفع</b>
-    </td>
-    <td align="center" width="33%">
-      <img src="https://github.com/user-attachments/assets/e66c89bc-efe1-4cd3-9b0a-fef2524f19c8" width="250px" alt="Profile Screen"/><br/>
-      <b>الملف الشخصي</b>
-    </td>
-  </tr>
-</table>
+| Sign In Screen
+<img width="698" height="862" alt="image" src="https://github.com/user-attachments/assets/a090ef7f-006b-4adb-80d4-eb714654af1c" />
+  
  صور التن
  ![home ](<img width="715" height="818" alt="Annotation 2026-05-10 225919" src="https://github.com/user-attachments/assets/33013b7f-3d11-44ce-a545-9158ab58be37" />
 )
