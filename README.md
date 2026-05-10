@@ -1,5 +1,5 @@
 # flutter_application_1
-# 🌸 Jouri (Bloomify) - Flower Shop App
+# Shop App
 
 تطبيق متجر زهور عصري تم بناؤه باستخدام **Flutter**، يركز على تقديم تجربة تسوق سلسة وجذابة لمحبي النباتات والهدايا.
 
@@ -32,7 +32,9 @@ lib/
 ├── shared/         # ويدجت مشتركة (Appbar, Colors, Global Widgets)
 └── main.dart       # نقطة الانطلاق للتطبيق
 A new Flutter project.
- صور التنفيذات
+ صور التن
+ ![home ](<img width="715" height="818" alt="Annotation 2026-05-10 225919" src="https://github.com/user-attachments/assets/33013b7f-3d11-44ce-a545-9158ab58be37" />
+)
 <img width="715" height="818" alt="Annotation 2026-05-10 225919" src="https://github.com/user-attachments/assets/42294797-2402-4511-ac75-901342937428" />
 home
 <img width="728" height="826" alt="Annotation 2026-05-10 225336" src="https://github.com/user-attachments/assets/6c4c4dce-3116-4dc2-bf38-e6743fb93cd4" />
