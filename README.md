@@ -32,6 +32,8 @@ lib/
 ├── shared/         # ويدجت مشتركة (Appbar, Colors, Global Widgets)
 └── main.dart       # نقطة الانطلاق للتطبيق
 A new Flutter project
+| Sign In Screen
+<img width="698" height="862" alt="image" src="https://github.com/user-attachments/assets/a090ef7f-006b-4adb-80d4-eb714654af1c" />
 .
 ## 📸 واجهات التطبيق (App Screenshots)
 
