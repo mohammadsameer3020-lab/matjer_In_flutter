@@ -32,6 +32,19 @@ lib/
 ├── shared/         # ويدجت مشتركة (Appbar, Colors, Global Widgets)
 └── main.dart       # نقطة الانطلاق للتطبيق
 A new Flutter project.
+ صور التنفيذات
+<img width="715" height="818" alt="Annotation 2026-05-10 225919" src="https://github.com/user-attachments/assets/42294797-2402-4511-ac75-901342937428" />
+home
+<img width="728" height="826" alt="Annotation 2026-05-10 225336" src="https://github.com/user-attachments/assets/6c4c4dce-3116-4dc2-bf38-e6743fb93cd4" />
+المنتجات
+<img width="725" height="818" alt="Annotation 2026-05-10 225427" src="https://github.com/user-attachments/assets/fba53322-aaff-4ac6-a062-fe09e221a0de" />
+السله
+<img width="726" height="827" alt="Annotation 2026-05-10 225520" src="https://github.com/user-attachments/assets/dcfb28f1-5aa6-40b6-9d79-451c2c9cde50" />
+profile
+<img width="723" height="830" alt="Annotation 2026-05-10 225613" src="https://github.com/user-attachments/assets/e66c89bc-efe1-4cd3-9b0a-fef2524f19c8" />
+
+
+
 
 ## Getting Started
 
