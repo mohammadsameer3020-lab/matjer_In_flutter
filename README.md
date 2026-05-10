@@ -4,9 +4,7 @@
 
 تطبيق متجر زهور عصري تم بناؤه باستخدام **Flutter**، يركز على تقديم تجربة تسوق سلسة وجذابة لمحبي النباتات والهدايا.
 
-<img width="715" height="818" alt="Annotation 2026-05-10 225919" src="https://github.com/user-attachments/assets/0792553a-acda-469b-a627-a2bd7fc6240e" />
-<img width="715" height="818" alt="Annotation 2026-05-10 225919" src="https://github.com/user-attachments/assets/0792553a-acda-469b-a627-a2bd7fc6240e" />
-  
+
  صور التن
  ![home ](<img width="715" height="818" alt="Annotation 2026-05-10 225919" src="https://github.com/user-attachments/assets/33013b7f-3d11-44ce-a545-9158ab58be37" />
 )
