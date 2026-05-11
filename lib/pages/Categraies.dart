@@ -7,6 +7,8 @@ import 'package:first_flutter/shared/Appbar.dart';
 // import 'package:first_flutter/pages/home.dart';
 
 class CategoriesPage extends StatelessWidget {
+  const CategoriesPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

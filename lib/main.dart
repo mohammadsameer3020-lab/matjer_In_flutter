@@ -1,6 +1,4 @@
 //import 'package:first_flutter/pages/card.dart';
-import 'package:first_flutter/pages/Categraies.dart';
-import 'package:first_flutter/pages/home.dart';
 
 //import 'package:first_flutter/pages/Cart.dart'; // أو cart.dart إذا غيرت اسم الملف
 import 'package:first_flutter/provider/cart.dart';

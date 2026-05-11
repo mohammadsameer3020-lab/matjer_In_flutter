@@ -37,19 +37,19 @@ class ProfilePage extends StatelessWidget {
                 bottomRight: Radius.circular(30),
               ),
             ),
-            child: Column(
+            child: const Column(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 50,
                   backgroundImage:
                       NetworkImage("https://via.placeholder.com/150"),
                 ),
-                const SizedBox(height: 10),
-                const Text(
+                SizedBox(height: 10),
+                Text(
                   "Mohamed Ahmed",
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
-                const Text("mohamed@example.com",
+                Text("mohamed@example.com",
                     style: TextStyle(color: Colors.grey)),
               ],
             ),

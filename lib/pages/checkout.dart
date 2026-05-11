@@ -79,7 +79,7 @@ class Checkout extends StatelessWidget {
                                   const SizedBox(height: 8),
                                   Text(
                                     "\$ ${item.price.toStringAsFixed(2)}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 15,
                                         color: BTNgreen,
                                         fontWeight: FontWeight.w600),
