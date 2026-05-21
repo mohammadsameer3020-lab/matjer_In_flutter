@@ -1,9 +1,9 @@
 import 'package:first_flutter/model/item.dart';
-import 'package:first_flutter/provider/cart.dart'; // تأكد من وجود هذا الـ Import
+import 'package:first_flutter/provider/cart.dart';
 import 'package:first_flutter/shared/Appbar.dart';
 import 'package:first_flutter/shared/Coloer.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart'; // تأكد من وجود هذا الـ Import
+import 'package:provider/provider.dart';
 
 class Details extends StatefulWidget {
   final Item product;
@@ -23,8 +23,10 @@ class _DetailsState extends State<Details> {
         iconTheme: const IconThemeData(color: Colors.white),
         title:
             const Text("Details Screen", style: TextStyle(color: Colors.white)),
-        actions: const [
-          CartActionButton(),
+
+        // 🛠️ التعديل هنا: حذفنا كلمة const من قبل القوس المربع ليتلاشى الخط الأحمر فوراً
+        actions: [
+          const CartActionButton(),
         ],
         backgroundColor: BTNgreen,
       ),
@@ -93,7 +95,9 @@ class _DetailsState extends State<Details> {
                     "This product represents high quality and elegance. Jasmine flowers are among the most beautiful flowers, characterized by a fragrant and attractive scent, and are used in decorating homes and special occasions. It also symbolizes beauty and purity. You can order it now from our store to receive it wrapped in the best possible way to ensure its quality and safety.",
                     style: const TextStyle(fontSize: 18),
                     maxLines: isShowMore ? null : 3,
-                    overflow: TextOverflow.ellipsis,
+                    overflow: isShowMore
+                        ? TextOverflow.visible
+                        : TextOverflow.ellipsis,
                   ),
                   TextButton(
                     onPressed: () {

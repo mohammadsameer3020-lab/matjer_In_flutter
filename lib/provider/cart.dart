@@ -2,55 +2,53 @@ import 'package:flutter/material.dart';
 import 'package:first_flutter/model/item.dart';
 
 class Cart with ChangeNotifier {
-  List<Item> selectedProducts = [];
-  double price = 0;
+  List<Item> _selectedProducts = [];
+  List<Item> _favoriteProducts = [];
+  double _price = 0;
 
-  // إضافة منتج للسلة
-  // داخل ملف provider/cart.dart
-  // داخل كلاس Cart في ملف cart.dart
-  void removeAll(Item product) {
-    // هذه الدالة تحذف كل المنتجات التي تملك نفس الاسم من القائمة
-    selectedProducts.removeWhere((item) => item.name == product.name);
-    notifyListeners();
-  }
-// داخل ملف provider/cart.dart
-// داخل كلاس Cart في ملف lib/provider/cart.dart
+  // استخدام Getters للوصول للبيانات بشكل آمن
+  List<Item> get selectedProducts => _selectedProducts;
+  List<Item> get favoriteProducts => _favoriteProducts;
+  double get price => _price;
 
-  void delete(Item product) {
-    // 1. حذف النسخة الأولى التي يجدها من المنتج في القائمة
-    selectedProducts.remove(product);
-
-    // 2. خصم سعر المنتج من إجمالي السعر
-    price -= product.price;
-
-    // 3. تحديث جميع الشاشات التي تستمع لهذا البروفايدر (مهم جداً)
-    notifyListeners();
-  }
-
-  void removeAllOfProduct(Item product) {
-    // حساب عدد القطع الموجودة من هذا المنتج
-    int count = selectedProducts.where((p) => p.name == product.name).length;
-    double amountToSubtract = product.price * count;
-
-    // حذف جميع القطع التي تحمل نفس الاسم
-    selectedProducts.removeWhere((p) => p.name == product.name);
-
-    // خصم المبلغ الإجمالي للمنتج المحذوف
-    price -= amountToSubtract;
-
-    // تصفير السعر إذا أصبحت السلة فارغة
-    if (selectedProducts.isEmpty) {
-      price = 0;
-    }
-
-    notifyListeners();
-  }
-
+  // 1. إضافة منتج
   void add(Item product) {
-    selectedProducts.add(product);
-    price += product.price;
-    notifyListeners(); // هذا السطر هو المسؤول عن تغيير الرقم في الشاشة فوراً
+    _selectedProducts.add(product);
+    _price += product.price;
+    notifyListeners();
   }
 
-  int get count => selectedProducts.length;
+  // 2. حذف منتج واحد فقط (عند تقليل الكمية مثلاً)
+  void delete(Item product) {
+    if (_selectedProducts.contains(product)) {
+      _selectedProducts.remove(product);
+      _price -= product.price;
+      // تأمين ضد القيم السالبة الناتجة عن أخطاء الحساب
+      if (_price < 0) _price = 0;
+      notifyListeners();
+    }
+  }
+
+  // 3. حذف كل النسخ من منتج معين
+  void removeAllOfProduct(Item product) {
+    int count = _selectedProducts.where((p) => p.name == product.name).length;
+    _selectedProducts.removeWhere((p) => p.name == product.name);
+    _price -= (product.price * count);
+    if (_price < 0) _price = 0;
+    notifyListeners();
+  }
+
+  // 4. تحسين دالة المفضلة (استخدام اسم المنتج للمقارنة لضمان الدقة)
+  void toggleFavorite(Item product) {
+    if (_favoriteProducts.any((item) => item.name == product.name)) {
+      _favoriteProducts.removeWhere((item) => item.name == product.name);
+    } else {
+      _favoriteProducts.add(product);
+    }
+    notifyListeners();
+  }
+
+  bool isFavorite(Item product) {
+    return _favoriteProducts.any((item) => item.name == product.name);
+  }
 }

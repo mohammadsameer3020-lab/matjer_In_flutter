@@ -1,6 +1,4 @@
-//import 'package:first_flutter/pages/card.dart';
-
-//import 'package:first_flutter/pages/Cart.dart'; // أو cart.dart إذا غيرت اسم الملف
+import 'dart:ui'; // 1️⃣ تأكد من وجود هذا السطر في أول الملف فوق
 import 'package:first_flutter/provider/cart.dart';
 import 'package:first_flutter/shared/MainPage.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +7,6 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
-      // ✅ استخدم Cart() هنا بالـ T
       create: (context) => Cart(),
       child: const MyApp(),
     ),
@@ -21,9 +18,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainPage(),
+
+      // 2️⃣ ضع هذا الجزء هنا داخل الـ MaterialApp مباشرة
+      scrollBehavior: const MaterialScrollBehavior().copyWith(
+        dragDevices: {
+          PointerDeviceKind.touch, // للهواتف
+          PointerDeviceKind.mouse, // للمحاكي بالماوس
+        },
+      ),
+
+      home: const MainPage(),
     );
   }
 }

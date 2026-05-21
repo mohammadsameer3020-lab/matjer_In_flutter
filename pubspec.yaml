@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  http: ^1.1.0  # أضف هذا السطر هنا
   provider: ^6.1.1
   # تأكد أنك تحتاج فعلاً لهذه المكتبة بالأسفل لأن اسمها يشبه اسم مشروع افتراضي
   flutter_application_1: ^0.0.2

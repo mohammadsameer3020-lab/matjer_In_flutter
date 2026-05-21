@@ -1,10 +1,10 @@
+import 'package:first_flutter/model/item.dart'; // تأكد من استيراد كلاس Item
 import 'package:first_flutter/model/itemeCategries.dart';
-import 'package:first_flutter/pages/Protect.dart';
 import 'package:flutter/material.dart';
 import 'package:first_flutter/shared/Coloer.dart';
 import 'package:first_flutter/shared/Appbar.dart';
-// تأكد من استيراد صفحة الهوم أو المتجر هنا لكي يعمل الـ Navigator
-// import 'package:first_flutter/pages/home.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class CategoriesPage extends StatelessWidget {
   const CategoriesPage({super.key});
@@ -29,11 +29,10 @@ class CategoriesPage extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                // ✅ هنا نطبق منطق الانتقال وتمرير الاسم
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Protect(
+                    builder: (context) => StorePage(
                       categoryName: allCategories[index].name,
                     ),
                   ),
@@ -56,10 +55,9 @@ class CategoriesPage extends StatelessWidget {
                     allCategories[index].name,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -71,21 +69,61 @@ class CategoriesPage extends StatelessWidget {
   }
 }
 
-// ✅ هذه هي الشاشة "المستقبلة" للبيانات (ضعها في ملف منفصل أفضل)
-class StorePage extends StatelessWidget {
+// ✅ تم تحويلها لـ StatefulWidget لجلب بيانات الـ API
+class StorePage extends StatefulWidget {
   final String categoryName;
-
   const StorePage({super.key, required this.categoryName});
+
+  @override
+  State<StorePage> createState() => _StorePageState();
+}
+
+class _StorePageState extends State<StorePage> {
+  Future<List<Item>> getProducts() async {
+    final response = await http.get(Uri.parse(
+        'https://fakestoreapi.com/products/category/${widget.categoryName.toLowerCase()}'));
+
+    if (response.statusCode == 200) {
+      List<dynamic> data = json.decode(response.body);
+      return data
+          .map((item) => Item(
+                name: item['title'],
+                price: (item['price'] as num).toDouble(),
+                imgPath: item['image'],
+              ))
+          .toList();
+    }
+    throw Exception('Error');
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: BTNgreen,
-        title: Text(categoryName), // سيعرض اسم القسم المختار
+        title: Text(widget.categoryName),
       ),
-      body: Center(
-        child: Text("Displaying items for: $categoryName"),
+      body: FutureBuilder<List<Item>>(
+        future: getProducts(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData)
+            return const Center(child: CircularProgressIndicator());
+
+          return GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2),
+            itemCount: snapshot.data!.length,
+            itemBuilder: (context, index) {
+              final item = snapshot.data![index];
+              return Card(
+                  child: Column(children: [
+                Expanded(child: Image.network(item.imgPath)),
+                Text(item.name, maxLines: 1),
+                Text("\$${item.price}")
+              ]));
+            },
+          );
+        },
       ),
     );
   }

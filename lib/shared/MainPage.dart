@@ -1,10 +1,13 @@
 import 'package:first_flutter/pages/home.dart';
 import 'package:first_flutter/pages/profile.dart';
-import 'package:flutter/material.dart';
-// محتوى صفحة الهوم القديم
 import 'package:first_flutter/pages/Categraies.dart';
 import 'package:first_flutter/pages/checkout.dart';
+import 'package:first_flutter/pages/all_favorites_page.dart';
+import 'package:first_flutter/provider/cart.dart';
 import 'package:first_flutter/shared/Coloer.dart';
+import 'package:first_flutter/pages/favorite_icon_badge.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -14,48 +17,55 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  // في أعلى الملف تأكد من عمل import لشاشة البروفايل
-// import 'package:first_flutter/pages/profile.dart';
+  int currentIndex = 0;
 
-  int currentIndex = 0; // المتغير الذي يحدد الصفحة الحالية
-
-// قائمة الصفحات
+  // قائمة الصفحات (4 عناصر فقط، لأن السلة صفحة منفصلة وليست في التبويب)
   final List<Widget> pages = [
-    const Home(), // index 0
-    CategoriesPage(), // index 1
-    const Checkout(), // index 2 (شاشة السلة)
-    const ProfilePage(), // index 3 (شاشة البروفايل التي سننتقل إليها)
+    const Home(),
+    Consumer<Cart>(
+      builder: (context, cart, child) =>
+          AllFavoritesPage(favoriteProducts: cart.favoriteProducts),
+    ),
+    CategoriesPage(),
+    const ProfilePage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // عرض الصفحة بناءً على الرقم المختار
       body: pages[currentIndex],
       backgroundColor: const Color.fromARGB(255, 214, 200, 200),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
+          // منطق التنقل:
+          // إذا كان index هو 3، نفتح السلة كصفحة مستقلة (Push)
+          if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Checkout()),
+            );
+          } else {
+            // إذا كان index أكبر من 3 (أي البروفايل وهو ترتيبه 4)، نعدله لـ 3
+            setState(() {
+              currentIndex = (index > 3) ? index - 1 : index;
+            });
+          }
         },
         type: BottomNavigationBarType.fixed,
-
-        // --- التعديلات المطلوبة للألوان هنا ---
-        backgroundColor:
-            BTNgreen, // جعل خلفية الشريط خضراء ليظهر اللون الأبيض بوضوح
-        selectedItemColor: Colors.white, // لون الأيقونة والنص المختار
-        unselectedItemColor:
-            Colors.white70, // لون الأيقونات غير المختارة (أبيض شفاف قليلاً)
-
+        backgroundColor: BTNgreen,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
+              icon: FavoriteIconBadge(), label: "Favorites"),
+          BottomNavigationBarItem(
               icon: Icon(Icons.grid_view), label: "Categories"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: "Cart"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+              icon: Icon(Icons.shopping_cart), label: "Cart"), // الترتيب 3
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person), label: "Profile"), // الترتيب 4
         ],
       ),
     );

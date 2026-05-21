@@ -11,7 +11,8 @@ class Category {
 List<Category> allCategories = [
   Category(
       name: "Classic Roses",
-      imgPath: "https://images.unsplash.com/photo-1548092372-0d1bd40894a3"),
+      imgPath:
+          "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop"),
   Category(
       name: "Wedding Bouquets",
       imgPath: "https://images.unsplash.com/photo-1519741497674-611481863552"),

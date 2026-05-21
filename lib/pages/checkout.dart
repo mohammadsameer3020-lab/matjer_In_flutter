@@ -10,13 +10,12 @@ class Checkout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ملاحظة: إذا كنت تستخدم MainPage، يمكنك حذف AppBar من هنا
       appBar: AppBar(
-        backgroundColor: BTNgreen,
-        title: const Text("Checkout", style: TextStyle(color: Colors.white)),
-        actions: const [
-          CartActionButton(),
-        ],
+        title: const Text("السلة"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new),
+          onPressed: () => Navigator.pop(context), // الرجوع الصحيح
+        ),
       ),
       body: Consumer<Cart>(
         builder: (context, cartInstance, child) {
