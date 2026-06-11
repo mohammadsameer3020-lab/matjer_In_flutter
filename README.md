@@ -5,29 +5,6 @@
 تطبيق متجر زهور عصري تم بناؤه باستخدام **Flutter**، يركز على تقديم تجربة تسوق سلسة وجذابة لمحبي النباتات والهدايا.
 
 
- صور التن
- ![home ](<img width="715" height="818" alt="Annotation 2026-05-10 225919" src="https://github.com/user-attachments/assets/33013b7f-3d11-44ce-a545-9158ab58be37" />
-)
-<img width="715" height="818" alt="Annotation 2026-05-10 225919" src="https://github.com/user-attachments/assets/42294797-2402-4511-ac75-901342937428" />
-home
-<img width="728" height="826" alt="Annotation 2026-05-10 225336" src="https://github.com/user-attachments/assets/6c4c4dce-3116-4dc2-bf38-e6743fb93cd4" />
-المنتجات
-<img width="725" height="818" alt="Annotation 2026-05-10 225427" src="https://github.com/user-attachments/assets/fba53322-aaff-4ac6-a062-fe09e221a0de" />
-السله
-<img width="726" height="827" alt="Annotation 2026-05-10 225520" src="https://github.com/user-attachments/assets/dcfb28f1-5aa6-40b6-9d79-451c2c9cde50" />
-profile
-<img width="723" height="830" alt="Annotation 2026-05-10 225613" src="https://github.com/user-attachments/assets/e66c89bc-efe1-4cd3-9b0a-fef2524f19c8" />
-
-
-
-## 🚀 نظرة عامة (Overview)
-هذا المشروع هو عبارة عن منصة تجارة إلكترونية متكاملة لبيع الزهور، تهدف إلى تسهيل عملية اختيار وتنسيق الهدايا. يتميز التطبيق بسرعة الأداء، وتحديثات الأسعار اللحظية، وتصميم واجهة مستخدم (UI) مريح يعتمد على هوية بصرية مستوحاة من الطبيعة.
-
-## 🛠 التقنيات المستخدمة (Tech Stack)
-* **Framework:** [Flutter](https://flutter.dev/)
-* **State Management:** [Provider](https://pub.dev/packages/provider) (لإدارة حالة السلة وتحديث السعر فورياً).
-* **Language:** Dart.
-* **Design Pattern:** Clean Code & Modular Structure.
 
 ## ✨ المميزات (Features)
 - **تصفح ذكي:** عرض المنتجات مع صور عالية الجودة وتفاصيل شاملة.
